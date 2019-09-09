@@ -10,11 +10,12 @@ using System.Windows.Forms;
 
 namespace Restrand
 {
-    public partial class Form1 : Form
+    public partial class Masa : Form
     {
-        public Form1()
+        public Masa()
         {
             InitializeComponent();
+
         }
     }
 }
