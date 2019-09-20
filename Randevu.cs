@@ -7,19 +7,7 @@ namespace Restrand
 {
     public  class Randevu:Restaurant
     {
-        public object MusteriBilgileri { get; set; }
-
-        public override string MasaKonumu()
-        {
-            throw new NotImplementedException();
-        }
-
         public override int MasaSayisi()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override object Menu()
         {
             throw new NotImplementedException();
         }
@@ -28,6 +16,17 @@ namespace Restrand
         {
             throw new NotImplementedException();
         }
+
+        public override string MasaKonumu()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override object Menu()
+        {
+            throw new NotImplementedException();
+        }
+        public object MusteriBilgileri { get; set; }
         private DateTime tarih;
 
         public DateTime Tarih
@@ -36,6 +35,5 @@ namespace Restrand
 
             set { tarih = value; }
         }
-
     }
 }
