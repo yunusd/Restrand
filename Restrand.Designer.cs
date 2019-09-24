@@ -120,9 +120,9 @@
         private System.Windows.Forms.Button btnMasaEkle;
         private System.Windows.Forms.Button btnUrunEkle;
         private System.Windows.Forms.Button btnRandevuBilgi;
-        private System.Windows.Forms.ListBox lstEklenenMasa;
         private System.Windows.Forms.ListBox lstEklenenUrun;
         private System.Windows.Forms.ListBox lstEklenenRandevu;
+        public System.Windows.Forms.ListBox lstEklenenMasa;
     }
 }
 

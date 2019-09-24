@@ -43,6 +43,5 @@ namespace Restrand
 
         public static string DeleteMasaKonumu { get; } = "DELETE FROM MasaKonumu WHERE MasaKonumuAd = @masaKonumuAd";
 
-
     }
 }
