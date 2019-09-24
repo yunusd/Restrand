@@ -21,7 +21,7 @@ namespace Restrand
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            new Masa().ShowDialog();
+            _ = new Masa().ShowDialog();
         }
     }
 }

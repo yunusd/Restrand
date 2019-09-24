@@ -66,6 +66,7 @@
       <DependentUpon>Masa.cs</DependentUpon>
     </Compile>
     <Compile Include="Urun.cs" />
+    <Compile Include="Utils.cs" />
     <EmbeddedResource Include="Restrand.resx">
       <DependentUpon>Restrand.cs</DependentUpon>
     </EmbeddedResource>
@@ -77,6 +78,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Masa.resx">
       <DependentUpon>Masa.cs</DependentUpon>
@@ -93,6 +95,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\baseline_add_black_18dp.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

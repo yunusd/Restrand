@@ -10,7 +10,7 @@ namespace Restrand
         static int masaSayisi = 0;
         public int MasaSayisi()
         {
-            return masaSayisi;
+           return masaSayisi;
         }
 
         public MasaBilgileri()
