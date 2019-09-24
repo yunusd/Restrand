@@ -38,9 +38,10 @@
             // 
             // btnMasaEkle
             // 
-            this.btnMasaEkle.Location = new System.Drawing.Point(101, 330);
+            this.btnMasaEkle.Location = new System.Drawing.Point(202, 635);
+            this.btnMasaEkle.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnMasaEkle.Name = "btnMasaEkle";
-            this.btnMasaEkle.Size = new System.Drawing.Size(150, 55);
+            this.btnMasaEkle.Size = new System.Drawing.Size(300, 106);
             this.btnMasaEkle.TabIndex = 0;
             this.btnMasaEkle.Text = "Masa Ekle";
             this.btnMasaEkle.UseVisualStyleBackColor = true;
@@ -48,18 +49,20 @@
             // 
             // btnUrunEkle
             // 
-            this.btnUrunEkle.Location = new System.Drawing.Point(321, 330);
+            this.btnUrunEkle.Location = new System.Drawing.Point(642, 635);
+            this.btnUrunEkle.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnUrunEkle.Name = "btnUrunEkle";
-            this.btnUrunEkle.Size = new System.Drawing.Size(150, 55);
+            this.btnUrunEkle.Size = new System.Drawing.Size(300, 106);
             this.btnUrunEkle.TabIndex = 1;
             this.btnUrunEkle.Text = "Ürün Ekle";
             this.btnUrunEkle.UseVisualStyleBackColor = true;
             // 
             // btnRandevuBilgi
             // 
-            this.btnRandevuBilgi.Location = new System.Drawing.Point(531, 330);
+            this.btnRandevuBilgi.Location = new System.Drawing.Point(1062, 635);
+            this.btnRandevuBilgi.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnRandevuBilgi.Name = "btnRandevuBilgi";
-            this.btnRandevuBilgi.Size = new System.Drawing.Size(150, 55);
+            this.btnRandevuBilgi.Size = new System.Drawing.Size(300, 106);
             this.btnRandevuBilgi.TabIndex = 2;
             this.btnRandevuBilgi.Text = "Randevu Bilgileri";
             this.btnRandevuBilgi.UseVisualStyleBackColor = true;
@@ -67,38 +70,45 @@
             // lstEklenenMasa
             // 
             this.lstEklenenMasa.FormattingEnabled = true;
-            this.lstEklenenMasa.Location = new System.Drawing.Point(101, 34);
+            this.lstEklenenMasa.ItemHeight = 25;
+            this.lstEklenenMasa.Location = new System.Drawing.Point(202, 65);
+            this.lstEklenenMasa.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.lstEklenenMasa.Name = "lstEklenenMasa";
-            this.lstEklenenMasa.Size = new System.Drawing.Size(150, 290);
+            this.lstEklenenMasa.Size = new System.Drawing.Size(296, 554);
             this.lstEklenenMasa.TabIndex = 3;
             // 
             // lstEklenenUrun
             // 
             this.lstEklenenUrun.FormattingEnabled = true;
-            this.lstEklenenUrun.Location = new System.Drawing.Point(321, 34);
+            this.lstEklenenUrun.ItemHeight = 25;
+            this.lstEklenenUrun.Location = new System.Drawing.Point(642, 65);
+            this.lstEklenenUrun.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.lstEklenenUrun.Name = "lstEklenenUrun";
-            this.lstEklenenUrun.Size = new System.Drawing.Size(150, 290);
+            this.lstEklenenUrun.Size = new System.Drawing.Size(296, 554);
             this.lstEklenenUrun.TabIndex = 4;
             // 
             // lstEklenenRandevu
             // 
             this.lstEklenenRandevu.FormattingEnabled = true;
-            this.lstEklenenRandevu.Location = new System.Drawing.Point(531, 34);
+            this.lstEklenenRandevu.ItemHeight = 25;
+            this.lstEklenenRandevu.Location = new System.Drawing.Point(1062, 65);
+            this.lstEklenenRandevu.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.lstEklenenRandevu.Name = "lstEklenenRandevu";
-            this.lstEklenenRandevu.Size = new System.Drawing.Size(150, 290);
+            this.lstEklenenRandevu.Size = new System.Drawing.Size(296, 554);
             this.lstEklenenRandevu.TabIndex = 5;
             // 
             // Restrand
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1600, 865);
             this.Controls.Add(this.lstEklenenRandevu);
             this.Controls.Add(this.lstEklenenUrun);
             this.Controls.Add(this.lstEklenenMasa);
             this.Controls.Add(this.btnRandevuBilgi);
             this.Controls.Add(this.btnUrunEkle);
             this.Controls.Add(this.btnMasaEkle);
+            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Name = "Restrand";
             this.Text = "Restrand";
             this.ResumeLayout(false);

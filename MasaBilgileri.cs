@@ -24,7 +24,7 @@ namespace Restrand
 
         public override string ToString()
         {
-            return $"Konum: {masaKonumu}, Sandalye Sayısı: {sandalyeSayisi}";
+            return $"Konum: {masaKonumu}, San: {sandalyeSayisi}";
         }
     }
 }
