@@ -18,12 +18,24 @@ namespace Restrand
         public Masa()
         {
             InitializeComponent();
-            cbMasaKonumu.Items.Add("Bahçe");
+            using(SqlConnection conn = new SqlConnection())
+            {
+                conn.ConnectionString = Utils.ConnectionString();
+                conn.Open();
+                using (SqlCommand selectCommand = new SqlCommand(Utils.SelectMasaKonumu, conn))
+                {
+                    SqlDataReader dr = selectCommand.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        cbMasaKonumu.Items.Add(dr[0]);
+                    }
+                }
+            }
         }
 
         private void BtnMasaEkle_Click(object sender, EventArgs e)
         {
-            if(cbMasaKonumu.SelectedIndex == -1)
+            if (cbMasaKonumu.SelectedIndex == -1)
             {
                 MessageBox.Show("Masa eklemek için seçili bir masa konumu olması gerek");
                 return;
@@ -40,7 +52,7 @@ namespace Restrand
                 masaKonumu = cbMasaKonumu.SelectedItem.ToString(),
                 sandalyeSayisi = Convert.ToInt32(txtSandSayi.Text)
             };
-            
+
 
             using (SqlConnection conn = new SqlConnection())
             {
@@ -61,10 +73,11 @@ namespace Restrand
             lstEklenenMasalar.Items.Add(masa);
             txtSandSayi.Clear();
         }
-       
+
         private void BtnMasaKonumuEkle_Click(object senders, EventArgs e)
         {
-            Form KonumEkle = new Form() {
+            Form KonumEkle = new Form()
+            {
                 Text = "Masa Konumu Ekle",
                 Size = new Size(252, 473),
                 StartPosition = this.StartPosition,
@@ -93,7 +106,8 @@ namespace Restrand
                 Size = new Size(173, 325)
             };
 
-            Button btnKonumEkle = new Button {
+            Button btnKonumEkle = new Button
+            {
                 Text = "Ekle",
                 Anchor = AnchorStyles.Bottom | AnchorStyles.Right | AnchorStyles.Left,
                 Location = new Point(29, 370),
@@ -112,6 +126,19 @@ namespace Restrand
             KonumEkle.Controls.Add(lstMasaKonumu);
             KonumEkle.Controls.Add(btnKonumEkle);
             KonumEkle.Controls.Add(btnKonumSil);
+            using(SqlConnection conn = new SqlConnection())
+            {
+                conn.ConnectionString = Utils.ConnectionString();
+                conn.Open();
+                using(SqlCommand selectCommand = new SqlCommand(Utils.SelectMasaKonumu, conn))
+                {
+                    SqlDataReader dr = selectCommand.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        lstMasaKonumu.Items.Add(dr[0]);
+                    }
+                }
+            }
             KonumEkle.Show();
             btnKonumEkle.Focus();
             btnKonumEkle.Click += (sender, args) =>
@@ -124,7 +151,8 @@ namespace Restrand
                         return;
                     }
                 }
-                if (!string.IsNullOrWhiteSpace(txtMasaKonumu.Text)) {
+                if (!string.IsNullOrWhiteSpace(txtMasaKonumu.Text))
+                {
                     using (SqlConnection conn = new SqlConnection())
                     {
                         conn.ConnectionString = Utils.ConnectionString();
@@ -144,7 +172,27 @@ namespace Restrand
 
             btnKonumSil.Click += (sender, args) =>
             {
-                lstMasaKonumu.Items.Remove(lstMasaKonumu.SelectedItem);
+                if (lstMasaKonumu.SelectedIndex != -1)
+                {
+                    using (SqlConnection conn = new SqlConnection())
+                    {
+                        conn.ConnectionString = Utils.ConnectionString();
+                        conn.Open();
+                        using (SqlCommand deleteCommand = new SqlCommand(Utils.DeleteMasaKonumu, conn))
+                        {
+                            deleteCommand.Parameters.AddWithValue("@masaKonumuAd", lstMasaKonumu.SelectedItem);
+                            deleteCommand.ExecuteNonQuery();
+                            cbMasaKonumu.Items.Remove(lstMasaKonumu.SelectedItem);
+                            lstMasaKonumu.Items.Remove(lstMasaKonumu.SelectedItem);
+
+                        }
+                        conn.Close();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Silmek için lütfen bir masa seçiniz!");
+                }
             };
 
         }
