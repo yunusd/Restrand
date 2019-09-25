@@ -47,6 +47,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\MasaBilgileri.cs" />
+    <Compile Include="Models\Masalar\MasaSecimi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Models\Masalar\MasaSecimi.Designer.cs">
+      <DependentUpon>MasaSecimi.cs</DependentUpon>
+    </Compile>
     <Compile Include="Restrand.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,6 +73,9 @@
     </Compile>
     <Compile Include="Models\Urun.cs" />
     <Compile Include="Models\Utils.cs" />
+    <EmbeddedResource Include="Models\Masalar\MasaSecimi.resx">
+      <DependentUpon>MasaSecimi.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Restrand.resx">
       <DependentUpon>Restrand.cs</DependentUpon>
     </EmbeddedResource>
@@ -99,9 +108,12 @@
   <ItemGroup>
     <None Include="Resources\baseline_add_black_18dp.png" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Models\Rezervasyonlar\" />
-    <Folder Include="Models\Urunler\" />
+    <Content Include="Models\Rezervasyonlar\init.txt" />
+    <Content Include="Models\Urunler\init.txt" />
+    <None Include="Resources\masadolu.png" />
+    <None Include="Resources\masabos.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

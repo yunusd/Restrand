@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Restrand.Models.Masalar;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -31,6 +32,7 @@ namespace Restrand
                     }
                 }
             }
+            new MasaSecimi().Show();
         }
 
         private void BtnMasaEkle_Click(object sender, EventArgs e)
