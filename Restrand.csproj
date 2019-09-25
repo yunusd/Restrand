@@ -46,27 +46,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MasaBilgileri.cs" />
+    <Compile Include="Models\MasaBilgileri.cs" />
     <Compile Include="Restrand.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Restrand.Designer.cs">
       <DependentUpon>Restrand.cs</DependentUpon>
     </Compile>
-    <Compile Include="Istatistik.cs" />
-    <Compile Include="MusteriBilgileri.cs" />
+    <Compile Include="Models\Istatistik.cs" />
+    <Compile Include="Models\MusteriBilgileri.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Randevu.cs" />
-    <Compile Include="Restaurant.cs" />
-    <Compile Include="Masa.cs">
+    <Compile Include="Models\Randevu.cs" />
+    <Compile Include="Models\Restaurant.cs" />
+    <Compile Include="Models\Masalar\Masa.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Masa.Designer.cs">
+    <Compile Include="Models\Masalar\Masa.Designer.cs">
       <DependentUpon>Masa.cs</DependentUpon>
     </Compile>
-    <Compile Include="Urun.cs" />
-    <Compile Include="Utils.cs" />
+    <Compile Include="Models\Urun.cs" />
+    <Compile Include="Models\Utils.cs" />
     <EmbeddedResource Include="Restrand.resx">
       <DependentUpon>Restrand.cs</DependentUpon>
     </EmbeddedResource>
@@ -80,7 +80,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Masa.resx">
+    <EmbeddedResource Include="Models\Masalar\Masa.resx">
       <DependentUpon>Masa.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
@@ -98,6 +98,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\baseline_add_black_18dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\Rezervasyonlar\" />
+    <Folder Include="Models\Urunler\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
