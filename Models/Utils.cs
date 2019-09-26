@@ -39,6 +39,7 @@ namespace Restrand
         public static string SelectMasaBilgileri { get; } = "SELECT * FROM MasaBilgileri";
         public static string InsertMasaBilgileri { get; } = "INSERT INTO MasaBilgileri ([MasaNumarasi], [MasaKonumu], [SandalyeSayisi]) VALUES(@masaNumarasi, @masaKonumu, @sandalyeSayisi)";
         public static string SelectMasaKonumu { get; } = "SELECT * FROM MasaKonumu";
+        public static string SelectMasaKonumuSayi { get; } = "SELECT COUNT(*) FROM MasaKonumu";
         public static string InsertMasaKonumu { get; } = "INSERT INTO MasaKonumu ([MasaKonumuAd]) VALUES(@masaKonumuAd)";
 
         public static string DeleteMasaKonumu { get; } = "DELETE FROM MasaKonumu WHERE MasaKonumuAd = @masaKonumuAd";

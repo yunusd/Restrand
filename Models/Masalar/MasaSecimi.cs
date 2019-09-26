@@ -14,11 +14,11 @@ namespace Restrand.Models.Masalar
 {
     public partial class MasaSecimi : Form
     {
-        int masaAdet = 0;
         public MasaSecimi()
         {
             InitializeComponent();
             MasaOlustur();
+            MasaKonumuOlustur();
         }
 
         public void MasaOlustur()
@@ -31,7 +31,7 @@ namespace Restrand.Models.Masalar
             lvwMasalar.LargeImageList = resimListesi;
 
             #endregion
-            #region Masaları OLusturma
+            #region Masaları Olusturma
             ListViewItem lvi;
             using (SqlConnection conn = new SqlConnection())
             {
@@ -49,7 +49,6 @@ namespace Restrand.Models.Masalar
                         lvi.ImageKey = MasaDoluMu((int)dr[0]) ? "dolu" : "bos";
 
                         lvi.Tag = dr[0];
-                        masaAdet++;
                     }
                 }
                 conn.Close();
@@ -58,6 +57,9 @@ namespace Restrand.Models.Masalar
             #endregion
         }
 
+        /**
+         * Eğer yapılan sorguda RezervasyonDurumu adlı column 1 ise true 0 ise false döndürüyor.
+         */
         private bool MasaDoluMu(int masaNo)
         {
             bool isFill = false;
@@ -71,7 +73,6 @@ namespace Restrand.Models.Masalar
 
                     while (dr.Read())
                     {
-                        masaAdet++;
                         isFill = Convert.ToInt32(dr[2]) == 1;
                     }
                 }
@@ -79,6 +80,44 @@ namespace Restrand.Models.Masalar
             }
 
             return isFill;
+        }
+
+        private void MasaKonumuOlustur()
+        {
+            int i = 0;
+
+            using (SqlConnection conn = new SqlConnection(Utils.ConnectionString())) {
+                conn.Open();
+
+                // Kaç tane masa konumu olduğunu döndüren sql komutu
+                SqlCommand selectMasaKonumuSayi = new SqlCommand(Utils.SelectMasaKonumuSayi, conn);
+                
+                SqlCommand selectMasaKonumu = new SqlCommand(Utils.SelectMasaKonumu, conn);
+
+                int masaKonumSayisi = (int)selectMasaKonumuSayi.ExecuteScalar();
+                ToolStripMenuItem[] items = new ToolStripMenuItem[masaKonumSayisi];
+
+                SqlDataReader dr = selectMasaKonumu.ExecuteReader();
+                /**
+                 * Her bir masa konumu için yeni bir dropdown items oluşturuyoruz.
+                 */
+                while (dr.Read())
+                {
+                    items[i] = new ToolStripMenuItem();
+                    items[i].Name = $"dynamicItem{dr["MasaKonumuAd"].ToString()}";
+                    items[i].Tag = $"{dr["MasaKonumuAd"].ToString()}-{i}";
+                    items[i].Text = dr["MasaKonumuAd"].ToString();
+                    items[i].Click += (sender, args) =>
+                    {
+                        // Dropdown item'a eventhandler atanıyor.
+                        ToolStripMenuItem clickedItem = (ToolStripMenuItem)sender;
+                    };
+                    i++;
+                }
+                masaKonumuToolStripMenuItem.DropDownItems.AddRange(items);
+                conn.Close();
+                dr.Close();
+            };
         }
     }
 }
