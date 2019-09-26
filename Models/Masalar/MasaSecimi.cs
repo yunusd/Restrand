@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -13,7 +14,7 @@ namespace Restrand.Models.Masalar
 {
     public partial class MasaSecimi : Form
     {
-        int masaAdet = 20;
+        int masaAdet = 0;
         public MasaSecimi()
         {
             InitializeComponent();
@@ -31,24 +32,53 @@ namespace Restrand.Models.Masalar
 
             #endregion
             #region Masaları OLusturma
-            int masaNo;
             ListViewItem lvi;
-            for (int i = 0; i < masaAdet; i++)
+            using (SqlConnection conn = new SqlConnection())
             {
-                masaNo = i + 1;
-                lvi = new ListViewItem("Masa" + masaNo);
-
-                lvwMasalar.Items.Add(lvi);
-                if (true)
+                conn.ConnectionString = Utils.ConnectionString();
+                conn.Open();
+                using (SqlCommand selectCommand = new SqlCommand(Utils.SelectMasaBilgileri, conn))
                 {
-                    lvi.ImageKey = "bos";
+                    SqlDataReader dr = selectCommand.ExecuteReader();
+
+                    while (dr.Read())
+                    {
+                        lvi = new ListViewItem($"{dr["MasaKonumu"]} {dr[1]}");
+
+                        lvwMasalar.Items.Add(lvi);
+                        lvi.ImageKey = MasaDoluMu((int)dr[0]) ? "dolu" : "bos";
+
+                        lvi.Tag = dr[0];
+                        masaAdet++;
+                    }
                 }
-
-                lvi.Tag = masaNo;
-
+                conn.Close();
             }
 
             #endregion
+        }
+
+        private bool MasaDoluMu(int masaNo)
+        {
+            bool isFill = false;
+            using (SqlConnection conn = new SqlConnection())
+            {
+                conn.ConnectionString = Utils.ConnectionString();
+                conn.Open();
+                using (SqlCommand selectCommand = new SqlCommand(Utils.SelectIfStateTrueRezervasyon(masaNo), conn))
+                {
+                    SqlDataReader dr = selectCommand.ExecuteReader();
+
+                    while (dr.Read())
+                    {
+                        masaAdet++;
+                        isFill = Convert.ToInt32(dr[2]) == 1;
+                    }
+                }
+                conn.Close();
+            }
+
+            return isFill;
         }
     }
 }

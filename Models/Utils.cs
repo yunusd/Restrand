@@ -43,5 +43,13 @@ namespace Restrand
 
         public static string DeleteMasaKonumu { get; } = "DELETE FROM MasaKonumu WHERE MasaKonumuAd = @masaKonumuAd";
 
+        public static string SelectRezervasyon { get; } = "SELECT * FROM Rezervasyon";
+
+
+        public static string SelectIfStateTrueRezervasyon(int masaNo)
+        {
+            return "SELECT TOP 1 * FROM Rezervasyon WHERE MasaID = " + masaNo;
+        }
+
     }
 }
