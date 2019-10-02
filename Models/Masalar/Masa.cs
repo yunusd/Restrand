@@ -71,11 +71,6 @@ namespace Restrand
                 }
                 conn.Close();
             }
-            // Restrand formunun lstEklenenMasa adlı listesine erişebilmek için
-            // ilk önce listenin "Modifier'ını" public yapıyoruz(Arayüz Üzerinden)
-            // Daha sonra aşağıdaki şekilde forma erişebiliyoruz.
-            Form f = Application.OpenForms["Restrand"];
-            ((Restrand)f).lstEklenenMasa.Items.Add(masa);
 
             lstEklenenMasalar.Items.Add(masa);
             txtSandSayi.Clear();

@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.ürünlerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.siparişlerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.masaKonumuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lvwMasalar = new System.Windows.Forms.ListView();
             this.menuStrip1.SuspendLayout();
@@ -40,31 +38,17 @@
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ürünlerToolStripMenuItem,
-            this.siparişlerToolStripMenuItem,
             this.masaKonumuToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1173, 42);
+            this.menuStrip1.Size = new System.Drawing.Size(1272, 42);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
-            // 
-            // ürünlerToolStripMenuItem
-            // 
-            this.ürünlerToolStripMenuItem.Name = "ürünlerToolStripMenuItem";
-            this.ürünlerToolStripMenuItem.Size = new System.Drawing.Size(114, 38);
-            this.ürünlerToolStripMenuItem.Text = "Ürünler";
-            // 
-            // siparişlerToolStripMenuItem
-            // 
-            this.siparişlerToolStripMenuItem.Name = "siparişlerToolStripMenuItem";
-            this.siparişlerToolStripMenuItem.Size = new System.Drawing.Size(131, 38);
-            this.siparişlerToolStripMenuItem.Text = "Siparişler";
             // 
             // masaKonumuToolStripMenuItem
             // 
             this.masaKonumuToolStripMenuItem.Name = "masaKonumuToolStripMenuItem";
-            this.masaKonumuToolStripMenuItem.Size = new System.Drawing.Size(188, 38);
+            this.masaKonumuToolStripMenuItem.Size = new System.Drawing.Size(188, 36);
             this.masaKonumuToolStripMenuItem.Text = "Masa Konumu";
             // 
             // lvwMasalar
@@ -72,7 +56,7 @@
             this.lvwMasalar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lvwMasalar.Location = new System.Drawing.Point(0, 42);
             this.lvwMasalar.Name = "lvwMasalar";
-            this.lvwMasalar.Size = new System.Drawing.Size(1173, 765);
+            this.lvwMasalar.Size = new System.Drawing.Size(1272, 869);
             this.lvwMasalar.TabIndex = 1;
             this.lvwMasalar.UseCompatibleStateImageBehavior = false;
             // 
@@ -80,7 +64,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1173, 807);
+            this.ClientSize = new System.Drawing.Size(1272, 911);
             this.Controls.Add(this.lvwMasalar);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -96,8 +80,6 @@
         #endregion
 
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem ürünlerToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem siparişlerToolStripMenuItem;
         private System.Windows.Forms.ListView lvwMasalar;
         private System.Windows.Forms.ToolStripMenuItem masaKonumuToolStripMenuItem;
     }

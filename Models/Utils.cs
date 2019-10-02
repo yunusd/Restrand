@@ -37,6 +37,7 @@ namespace Restrand
         }
 
         public static string SelectMasaBilgileri { get; } = "SELECT * FROM MasaBilgileri";
+        public static string SelectWhereMasaBilgileri { get; } = "SELECT * FROM MasaBilgileri WHERE MasaKonumu = @masaKonumu";
         public static string InsertMasaBilgileri { get; } = "INSERT INTO MasaBilgileri ([MasaNumarasi], [MasaKonumu], [SandalyeSayisi]) VALUES(@masaNumarasi, @masaKonumu, @sandalyeSayisi)";
         public static string SelectMasaKonumu { get; } = "SELECT * FROM MasaKonumu";
         public static string SelectMasaKonumuSayi { get; } = "SELECT COUNT(*) FROM MasaKonumu";
@@ -46,6 +47,13 @@ namespace Restrand
 
         public static string SelectRezervasyon { get; } = "SELECT * FROM Rezervasyon";
 
+        public static string SelectUrunler { get; } = "SELECT ProductID [Id], CategoryName[Kategori], ProductName [Ürün Adı], Price[Fiyat] FROM Products JOIN Categories ON Products.CategoryID = Categories.CategoryID";
+        public static string InsertUrunler { get; } = "INSERT INTO Products(ProductName, Price, CategoryID) VALUES(@productName, @price, @categoryID)";
+        public static string SelectKategoriByName { get; } = "SELECT CategoryID FROM Categories WHERE CategoryName = @categoryName";
+        public static string DeleteUrunler { get; } = "DELETE FROM Products WHERE ProductID = @productID";
+        public static string DuzenleUrunler { get; } = "UPDATE Products SET ProductName = @productName, Price = @price WHERE ProductID = @productId";
+        public static string SelectKategori { get; } = "SELECT * FROM Categories";
+        public static string InsertKategori { get; } = "INSERT INTO Categories(CategoryName) VALUES(@categoryName)";
 
         public static string SelectIfStateTrueRezervasyon(int masaNo)
         {

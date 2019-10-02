@@ -17,11 +17,11 @@ namespace Restrand.Models.Masalar
         public MasaSecimi()
         {
             InitializeComponent();
-            MasaOlustur();
             MasaKonumuOlustur();
+            MasaOlustur(masaKonumuToolStripMenuItem.DropDownItems[0].Text);
         }
 
-        public void MasaOlustur()
+        public void MasaOlustur(string masaKonumu)
         {
             #region Masa Resimleri Tanımlama
             ImageList resimListesi = new ImageList();
@@ -37,10 +37,12 @@ namespace Restrand.Models.Masalar
             {
                 conn.ConnectionString = Utils.ConnectionString();
                 conn.Open();
-                using (SqlCommand selectCommand = new SqlCommand(Utils.SelectMasaBilgileri, conn))
+                using (SqlCommand selectCommand = new SqlCommand(Utils.SelectWhereMasaBilgileri, conn))
                 {
+                    selectCommand.Parameters.AddWithValue("masaKonumu", masaKonumu);
                     SqlDataReader dr = selectCommand.ExecuteReader();
 
+                    lvwMasalar.Items.Clear();
                     while (dr.Read())
                     {
                         lvi = new ListViewItem($"{dr["MasaKonumu"]} {dr[1]}");
@@ -86,12 +88,13 @@ namespace Restrand.Models.Masalar
         {
             int i = 0;
 
-            using (SqlConnection conn = new SqlConnection(Utils.ConnectionString())) {
+            using (SqlConnection conn = new SqlConnection(Utils.ConnectionString()))
+            {
                 conn.Open();
 
                 // Kaç tane masa konumu olduğunu döndüren sql komutu
                 SqlCommand selectMasaKonumuSayi = new SqlCommand(Utils.SelectMasaKonumuSayi, conn);
-                
+
                 SqlCommand selectMasaKonumu = new SqlCommand(Utils.SelectMasaKonumu, conn);
 
                 int masaKonumSayisi = (int)selectMasaKonumuSayi.ExecuteScalar();
@@ -103,6 +106,7 @@ namespace Restrand.Models.Masalar
                  */
                 while (dr.Read())
                 {
+                    string masaKonumuAd = dr["MasaKonumuAd"].ToString();
                     items[i] = new ToolStripMenuItem();
                     items[i].Name = $"dynamicItem{dr["MasaKonumuAd"].ToString()}";
                     items[i].Tag = $"{dr["MasaKonumuAd"].ToString()}-{i}";
@@ -111,6 +115,7 @@ namespace Restrand.Models.Masalar
                     {
                         // Dropdown item'a eventhandler atanıyor.
                         ToolStripMenuItem clickedItem = (ToolStripMenuItem)sender;
+                        MasaOlustur(masaKonumuAd);
                     };
                     i++;
                 }

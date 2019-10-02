@@ -53,6 +53,24 @@
     <Compile Include="Models\Masalar\MasaSecimi.Designer.cs">
       <DependentUpon>MasaSecimi.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\Urunler\UrunDuzenle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Models\Urunler\UrunDuzenle.Designer.cs">
+      <DependentUpon>UrunDuzenle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Urunler\UrunKategoriEkle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Models\Urunler\UrunKategoriEkle.Designer.cs">
+      <DependentUpon>UrunKategoriEkle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Urunler\Urunler.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Models\Urunler\Urunler.Designer.cs">
+      <DependentUpon>Urunler.cs</DependentUpon>
+    </Compile>
     <Compile Include="Restrand.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,6 +93,15 @@
     <Compile Include="Models\Utils.cs" />
     <EmbeddedResource Include="Models\Masalar\MasaSecimi.resx">
       <DependentUpon>MasaSecimi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Models\Urunler\UrunDuzenle.resx">
+      <DependentUpon>UrunDuzenle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Models\Urunler\UrunKategoriEkle.resx">
+      <DependentUpon>UrunKategoriEkle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Models\Urunler\Urunler.resx">
+      <DependentUpon>Urunler.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Restrand.resx">
       <DependentUpon>Restrand.cs</DependentUpon>
