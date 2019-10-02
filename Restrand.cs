@@ -1,4 +1,5 @@
 ﻿using Restrand.Models.Masalar;
+using Restrand.Models.Rezervasyonlar;
 using Restrand.Models.Urunler;
 using System;
 using System.Collections.Generic;
@@ -35,7 +36,9 @@ namespace Restrand
 
         private void BtnRandevuBilgi_Click(object sender, EventArgs e)
         {
-            _ = new MasaSecimi().ShowDialog();
+            RandevuGoster rg = new RandevuGoster();
+            rg.ShowDialog();
+
         }
     }
 }

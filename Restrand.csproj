@@ -53,6 +53,12 @@
     <Compile Include="Models\Masalar\MasaSecimi.Designer.cs">
       <DependentUpon>MasaSecimi.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\Rezervasyonlar\RandevuGoster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Models\Rezervasyonlar\RandevuGoster.Designer.cs">
+      <DependentUpon>RandevuGoster.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Urunler\UrunDuzenle.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,6 +99,9 @@
     <Compile Include="Models\Utils.cs" />
     <EmbeddedResource Include="Models\Masalar\MasaSecimi.resx">
       <DependentUpon>MasaSecimi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Models\Rezervasyonlar\RandevuGoster.resx">
+      <DependentUpon>RandevuGoster.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Models\Urunler\UrunDuzenle.resx">
       <DependentUpon>UrunDuzenle.cs</DependentUpon>

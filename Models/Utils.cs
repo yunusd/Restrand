@@ -46,6 +46,7 @@ namespace Restrand
         public static string DeleteMasaKonumu { get; } = "DELETE FROM MasaKonumu WHERE MasaKonumuAd = @masaKonumuAd";
 
         public static string SelectRezervasyon { get; } = "SELECT * FROM Rezervasyon";
+        public static string SelectRandevuBilgi { get; } = "SELECT * FROM Musteriler m JOIN Rezervasyon r ON m.MusterilerID=r.MusteriID ";
 
         public static string SelectUrunler { get; } = "SELECT ProductID [Id], CategoryName[Kategori], ProductName [Ürün Adı], Price[Fiyat] FROM Products JOIN Categories ON Products.CategoryID = Categories.CategoryID";
         public static string InsertUrunler { get; } = "INSERT INTO Products(ProductName, Price, CategoryID) VALUES(@productName, @price, @categoryID)";
